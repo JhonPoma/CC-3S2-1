@@ -66,5 +66,4 @@ public class TestJuegoSimple {
     assertEquals(JuegoSimple.EstadoJuego.EMPATE, juego.getEstadoJuego());
   }
 
-
 }
