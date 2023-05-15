@@ -1,4 +1,5 @@
 package extractinterface;
+
 // Antes
 /*
 public class Employee {
@@ -23,24 +24,30 @@ public class Employee {
 // Después
 interface Billable {
     double getRate();
+
     boolean hasSpecialSkill();
 }
-public class Employee implements  Billable{
+
+public class Employee implements Billable {
     private double rate;
     private boolean specialSkill;
     private String name;
     private String department;
+
     @Override
     public double getRate() {
         return rate;
     }
+
     @Override
     public boolean hasSpecialSkill() {
         return specialSkill;
     }
+
     public String getName() {
         return name;
     }
+
     public String getDepartment() {
         return department;
     }

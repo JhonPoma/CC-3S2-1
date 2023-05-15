@@ -51,7 +51,7 @@ valores = [0, 0, 1, 0, 0, 0, 0]
 ```
 
 ```
-Respuesta: El tercer caso porque la cantidad de valores es 10 y dicho valor está en el límite para el cambio del método de ordenamiento.
+Respuesta: El tercer caso porque la cantidad de valores es 10 y dicho valor está en el límite para el cambio del algoritmo de ordenamiento.
 ```
 
 ### Pruebas unitarias y de integración 
@@ -122,7 +122,7 @@ Cuando un caso de prueba llama a `index`, estás probando la corrección no solo
 Si la prueba falla, el error podría estar en cualquiera de esos métodos. Es por eso que queremos pruebas separadas para `load` y `extract`, para aumentar nuestra confianza en esos módulos individualmente y localizar el problema  en el código de `index` que los conecta. 
 
 Es posible aislar un módulo de nivel superior como `index` si escribimos versiones de código auxiliar de los módulos a los que llama. 
-Por ejemplo, un `stub` para `load` no accedería al sistema de archivos en absoluto, sino que devolvería el contenido del archivo `mock`  sin 
+Por ejemplo, un `stub` para `load` no accedería al sistema de archivos en absoluto, sino que devolvería el contenido de un archivo tipo `mock`  sin 
 importar qué `File` se le pasara. Un `stub` para una clase a menudo se denomina `mock object`. 
 
 Los `stubs` son una técnica importante cuando se construyen sistemas grandes.
@@ -139,16 +139,16 @@ Supongamos que está desarrollando una nueva receta de pizza. Hacer pizza involu
 
 Haces la masa para la base, la horneas sola y ves lo crocante y sabrosa que queda. Esto es `prueba unitaria de la masa` 
 
-Decides comprar una mezcla de especias prefabricada en una tienda especializada. Haces una salsa con las especias y luego la pruebas. Esto es `prueba unitaria de la salsa` 
+Decides comprar una mezcla de especias prefabricada en una tienda especializada. Haces una salsa con las especias y luego la pruebas. Esto es `prueba integración/unitaria de la salsa` 
 
-Pones salsa y aderezos en una corteza y la horneas, para ver si la corteza todavía se cocina bien con las cosas húmedas encima. Esto es `..........`.
+Pones salsa y aderezos en una corteza y la horneas, para ver si la corteza todavía se cocina bien con las cosas húmedas encima. Esto es `prueba de integración`.
 
 ### Pruebas de regresión automatizadas
 
 Las pruebas automatizadas significan ejecutar las pruebas y verificar tus resultados automáticamente. 
 
 Los frameworks de prueba automatizados como JUnit facilitan la ejecución de las pruebas, pero tú mismo tienes que crear buenos casos de prueba. 
-La generación automática de pruebas es un problema difícil, todavía es un tema de investigación activa en informática. 
+La generación automática de pruebas es un problema difícil y todavía es un tema de investigación activa en informática. 
 
 Una vez que tengas la automatización de pruebas, es muy importante volver a ejecutar tus pruebas cuando modifiques tu código. 
 
@@ -180,7 +180,7 @@ Referencia: [Automated Regression Testing: Everything You Need To Know ](https:/
 
 
 ```
-# Tu respuesta
+# Respuesta: La primera opción
 ```
 
 **Ejercicio**
@@ -197,7 +197,7 @@ Referencia: [Automated Regression Testing: Everything You Need To Know ](https:/
 - Después de pensar que solucionaste un error
 
 ```
-# Tu respuesta
+# Respuesta: todas
 ```
 
 
@@ -245,7 +245,7 @@ La iteración hace el mejor uso de su tiempo cuando un problema es difícil y se
 - Cobertura
 
 ```
-# Tu respuesta
+# Caja negra, regresión
 ```
 
 **Ejercicio** 
@@ -267,7 +267,7 @@ ayuda que puedas obtener para asegurarse de hacerlo bien.
 - Escribir un algoritmo de búsqueda lineal simple 
 
 ```
-# Tu respuesta
+# Pruebas de caja negra, escribir un algoritmo de búsqueda lineal simple
 ```
 **Ejercicio**
 
@@ -280,7 +280,7 @@ ayuda que puedas obtener para asegurarse de hacerlo bien.
 - Verificación de tipos estáticos ejecutando el compilador de Java 
 
 ```
-# Tu respuesta
+# Respuesta: Las 3
 ```
 
 ### Documenta tu estrategia de prueba 
@@ -368,7 +368,7 @@ La partición para el parámetro `a`:
 
 - En un comentario al comienzo de `Math.java` 
 
-- En un comentario al comienzo de `MathTest.java` 
+- En un comentario al comienzo de `MathTest.java` (respuesta)
 
 - En un comentario justo antes del método `max()`
 
@@ -385,7 +385,7 @@ La anotación `@Test`
 
 - Justo antes del método `max()` 
 
-- Justo antes de un método de prueba JUnit
+- Justo antes de un método de prueba JUnit (repuesta)
 
 ```
 
@@ -398,7 +398,7 @@ El comentario `covers a < b`
 
 - En un comentario justo antes del método `max()` 
 
-- En un comentario justo antes de un método de prueba JUnit
+- En un comentario justo antes de un método de prueba JUnit (respuesta)
 ```
 
 ```
@@ -408,7 +408,7 @@ El comentario `@return` el máximo de `a` y `b`
 
 - En un comentario al comienzo de `MathTest.java`
 
-- En un comentario justo antes del método `max()`
+- En un comentario justo antes del método `max()` (respuesta)
 
 - En un comentario justo antes de un método de prueba JUnit
 
@@ -417,5 +417,43 @@ El comentario `@return` el máximo de `a` y `b`
 Escribe el código completo de la prueba teniendo en cuenta las indicaciones anteriores.
 
 ```
-# Tu respuesta
+public class MathTest {
+    /**
+     *  Estrategia de la prueba
+     *
+     *  particion:
+     *      a < b
+     *      a > b
+     *      a = b
+     */
+
+    // cubre a < b
+    @Test
+    public void testAMenorQueB(){
+        int a = 5;
+        int b = 10;
+        int maximo = Math.max(a, b);
+        assertEquals(b, maximo);
+    }
+
+    // cubre a > b
+    @Test
+    public void testAMayorQueB(){
+        int a = 50;
+        int b = 10;
+        int maximo = Math.max(a, b);
+        assertEquals(a, maximo);
+    }
+
+    // cubre a = b
+    @Test
+    public void testAIgualQueB(){
+        int c = 10;
+        int a = c;
+        int b = c;
+        int maximo = Math.max(a, b);
+        assertEquals(c, maximo);
+    }
+
+}
 ```
